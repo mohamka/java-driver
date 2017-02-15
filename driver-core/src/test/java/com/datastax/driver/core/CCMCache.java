@@ -221,13 +221,13 @@ public class CCMCache {
         }
 
         @Override
-        public ProtocolVersion getDesiredProtocolVersion() {
-            return ccm.getDesiredProtocolVersion();
+        public ProtocolVersion getProtocolVersion() {
+            return ccm.getProtocolVersion();
         }
 
         @Override
-        public ProtocolVersion getDesiredProtocolVersion(ProtocolVersion maximumAllowed) {
-            return ccm.getDesiredProtocolVersion(maximumAllowed);
+        public ProtocolVersion getProtocolVersion(ProtocolVersion maximumAllowed) {
+            return ccm.getProtocolVersion(maximumAllowed);
         }
 
         @Override

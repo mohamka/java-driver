@@ -69,7 +69,7 @@ public class QueryLoggerTest extends CCMTestsSupport {
     @Override
     public void onTestContextInitialized() {
         dataTypes = new ArrayList<DataType>(
-                Sets.filter(DataType.allPrimitiveTypes(ccm().getDesiredProtocolVersion()), new Predicate<DataType>() {
+                Sets.filter(DataType.allPrimitiveTypes(ccm().getProtocolVersion()), new Predicate<DataType>() {
                     @Override
                     public boolean apply(DataType type) {
                         return type != DataType.counter();

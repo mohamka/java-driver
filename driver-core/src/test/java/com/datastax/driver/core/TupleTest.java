@@ -35,7 +35,7 @@ public class TupleTest extends CCMTestsSupport {
 
     @Override
     public void onTestContextInitialized() {
-        protocolVersion = ccm().getDesiredProtocolVersion();
+        protocolVersion = ccm().getProtocolVersion();
         samples = PrimitiveTypeSamples.samples(protocolVersion);
         execute("CREATE TABLE t (k int PRIMARY KEY, v frozen<tuple<int, text, float>>)");
     }

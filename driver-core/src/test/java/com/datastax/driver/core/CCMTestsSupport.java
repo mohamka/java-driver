@@ -243,13 +243,13 @@ public class CCMTestsSupport {
         }
 
         @Override
-        public ProtocolVersion getDesiredProtocolVersion() {
-            return delegate.getDesiredProtocolVersion();
+        public ProtocolVersion getProtocolVersion() {
+            return delegate.getProtocolVersion();
         }
 
         @Override
-        public ProtocolVersion getDesiredProtocolVersion(ProtocolVersion maximumAllowed) {
-            return delegate.getDesiredProtocolVersion(maximumAllowed);
+        public ProtocolVersion getProtocolVersion(ProtocolVersion maximumAllowed) {
+            return delegate.getProtocolVersion(maximumAllowed);
         }
 
         @Override
@@ -450,17 +450,15 @@ public class CCMTestsSupport {
                     ccmBuilder = CCMBridge.builder().withNodes(numberOfNodes()).notStarted();
                 }
 
-                VersionNumber version = VersionNumber.parse(version());
-                Boolean dse = dse();
-                if (dse != null) {
-                    if (dse) {
-                        ccmBuilder.withDSEVersion(version);
-                    } else {
-                        ccmBuilder.withCassandraVersion(version);
-                    }
-                } else {
-                    ccmBuilder.withCassandraVersion(version);
+                String versionStr = version();
+                if (versionStr != null) {
+                    VersionNumber version = VersionNumber.parse(versionStr);
+                    ccmBuilder.withVersion(version);
                 }
+
+                Boolean dse = dse();
+                if (dse != null)
+                    ccmBuilder.withDSE(dse);
                 if (ssl())
                     ccmBuilder.withSSL();
                 if (auth())

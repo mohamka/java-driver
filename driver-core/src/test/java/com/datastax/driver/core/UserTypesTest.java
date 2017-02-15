@@ -54,7 +54,7 @@ public class UserTypesTest extends CCMTestsSupport {
 
     @Override
     public void onTestContextInitialized() {
-        ProtocolVersion protocolVersion = ccm().getDesiredProtocolVersion();
+        ProtocolVersion protocolVersion = ccm().getProtocolVersion();
         DATA_TYPE_PRIMITIVES = new ArrayList<DataType>(DataType.allPrimitiveTypes(protocolVersion));
         DATA_TYPE_PRIMITIVES.remove(DataType.counter());
         samples = PrimitiveTypeSamples.samples(protocolVersion);

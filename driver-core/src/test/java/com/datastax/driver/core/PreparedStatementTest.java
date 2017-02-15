@@ -57,7 +57,7 @@ public class PreparedStatementTest extends CCMTestsSupport {
 
     @Override
     public void onTestContextInitialized() {
-        protocolVersion = ccm().getDesiredProtocolVersion();
+        protocolVersion = ccm().getProtocolVersion();
         primitiveTypes = DataType.allPrimitiveTypes(protocolVersion);
         execute(createTestFixtures());
     }
@@ -463,7 +463,7 @@ public class PreparedStatementTest extends CCMTestsSupport {
         Cluster cluster = register(Cluster.builder()
                 .addContactPoints(getContactPoints())
                 .withPort(ccm().getBinaryPort())
-                .withProtocolVersion(ccm().getDesiredProtocolVersion(ProtocolVersion.V3))
+                .withProtocolVersion(ccm().getProtocolVersion(ProtocolVersion.V3))
                 .build());
         Session session = cluster.connect();
         try {
@@ -493,7 +493,7 @@ public class PreparedStatementTest extends CCMTestsSupport {
         Cluster cluster = register(Cluster.builder()
                 .addContactPoints(getContactPoints())
                 .withPort(ccm().getBinaryPort())
-                .withProtocolVersion(ccm().getDesiredProtocolVersion(ProtocolVersion.V3))
+                .withProtocolVersion(ccm().getProtocolVersion(ProtocolVersion.V3))
                 .build());
         Session session = cluster.connect();
         try {

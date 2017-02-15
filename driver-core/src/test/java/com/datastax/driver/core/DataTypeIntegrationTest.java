@@ -49,7 +49,7 @@ public class DataTypeIntegrationTest extends CCMTestsSupport {
 
     @Override
     public void onTestContextInitialized() {
-        ProtocolVersion protocolVersion = ccm().getDesiredProtocolVersion();
+        ProtocolVersion protocolVersion = ccm().getProtocolVersion();
         samples = PrimitiveTypeSamples.samples(protocolVersion);
         tables = allTables();
         Host host = cluster().getMetadata().getAllHosts().iterator().next();
@@ -218,7 +218,7 @@ public class DataTypeIntegrationTest extends CCMTestsSupport {
         List<TestTable> tables = Lists.newArrayList();
         // Create a test table for each primitive type testing with null values.  If the
         // type maps to a java primitive type it's value will by the default value instead of null.
-        for (DataType dataType : DataType.allPrimitiveTypes(ccm().getDesiredProtocolVersion())) {
+        for (DataType dataType : DataType.allPrimitiveTypes(ccm().getProtocolVersion())) {
             Object expectedPrimitiveValue = null;
             switch (dataType.getName()) {
                 case BIGINT:

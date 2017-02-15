@@ -223,7 +223,7 @@ public class ReconnectionTest extends CCMTestsSupport {
                 .withReconnectionPolicy(new ConstantReconnectionPolicy(5000))
                 .withLoadBalancingPolicy(loadBalancingPolicy)
                 .withSocketOptions(socketOptions)
-                .withProtocolVersion(ccm().getDesiredProtocolVersion())
+                .withProtocolVersion(ccm().getProtocolVersion())
                 .build());
         // Create two sessions to have multiple pools
         cluster.connect();
