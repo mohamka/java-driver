@@ -245,7 +245,12 @@ public interface CCMAccess extends Closeable {
     void waitForDown(int node);
 
     /**
-     * @return The target protocol version based on the 'cassandra.version' System property.
+     * @return The target protocolVersion to use when connecting to this CCM cluster.
+     * <p/>
+     * This should be based on the highest protocol version that both the cluster and driver support.
+     * <p/>
+     * For example, C* 2.0.17 should return {@link ProtocolVersion#V2} since C* supports up to V2 and the driver
+     * supports that version.
      */
     ProtocolVersion getProtocolVersion();
 
