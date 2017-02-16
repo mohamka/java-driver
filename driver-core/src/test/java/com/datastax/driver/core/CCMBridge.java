@@ -1105,13 +1105,14 @@ public class CCMBridge implements CCMAccess {
         }
 
         @Override
+        @SuppressWarnings("SimplifiableIfStatement")
         public boolean equals(Object o) {
+            // do not include start as it is not relevant to the settings of the cluster.
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
 
             Builder builder = (Builder) o;
 
-            if (start != builder.start) return false;
             if (dse != builder.dse) return false;
             if (!Arrays.equals(nodes, builder.nodes)) return false;
             if (version != null ? !version.equals(builder.version) : builder.version != null) return false;
@@ -1124,8 +1125,8 @@ public class CCMBridge implements CCMAccess {
 
         @Override
         public int hashCode() {
+            // do not include start as it is not relevant to the settings of the cluster.
             int result = Arrays.hashCode(nodes);
-            result = 31 * result + (start ? 1 : 0);
             result = 31 * result + (dse ? 1 : 0);
             result = 31 * result + (version != null ? version.hashCode() : 0);
             result = 31 * result + createOptions.hashCode();

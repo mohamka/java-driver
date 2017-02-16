@@ -811,7 +811,7 @@ public abstract class TestUtils {
 
     /**
      * Helper for generating a DynamicCompositeType {@link ByteBuffer} from the given parameters.
-     * <p>
+     * <p/>
      * Any of params given as an Integer will be considered with a field name of 'i', any as String will
      * be considered with a field name of 's'.
      *
@@ -854,7 +854,7 @@ public abstract class TestUtils {
 
     /**
      * Helper for generating a Composite {@link ByteBuffer} from the given parameters.
-     * <p>
+     * <p/>
      * Expects Integer and String types for parameters.
      *
      * @param params params to serialize.
